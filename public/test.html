@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel Deployment Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0ABAB5;
+            margin-bottom: 10px;
+        }
+        .success {
+            color: #10b981;
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .info {
+            background: #e0f2f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .warning {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .step {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Vercel Deployment is Working!</h1>
+        
+        <div class="success">
+            <strong>Static files are being served correctly.</strong>
+        </div>
+
+        <div class="info">
+            <h2>What this means:</h2>
+            <ul>
+                <li>✅ Your project is deployed to Vercel</li>
+                <li>✅ Static files are accessible</li>
+                <li>✅ Build output directory is configured correctly</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h2>⚠️ If you're getting 404 on the main page:</h2>
+            <p>This means your React app needs environment variables to work. Follow these steps:</p>
+            
+            <div class="step">
+                <h3>Step 1: Add Environment Variables</h3>
+                <p>Go to <strong>Vercel Dashboard → Settings → Environment Variables</strong></p>
+                <p>Add these 2 variables:</p>
+                
+                <div class="code">
+                    <strong>Variable 1:</strong><br>
+                    Name: VITE_SUPABASE_URL<br>
+                    Value: https://znjotcubcutqhpkylhju.supabase.co
+                </div>
+                
+                <div class="code">
+                    <strong>Variable 2:</strong><br>
+                    Name: VITE_SUPABASE_ANON_KEY<br>
+                    Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpuam90Y3ViY3V0cWhwa3lsaGp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzMzUwMDksImV4cCI6MjA4ODkxMTAwOX0.Vq1aKQlnuku6d_-sxX-de7MjGu8ml8WKId9llhuuMtU
+                </div>
+
+                <p><strong>Important:</strong> Check ✅ Production, ✅ Preview, and ✅ Development for both variables</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 2: Redeploy</h3>
+                <ol>
+                    <li>Go to <strong>Deployments</strong> tab</li>
+                    <li>Click <strong>...</strong> (three dots) on latest deployment</li>
+                    <li>Click <strong>Redeploy</strong></li>
+                    <li><strong>UNCHECK</strong> "Use existing Build Cache"</li>
+                    <li>Click <strong>Redeploy</strong></li>
+                    <li>Wait 2-3 minutes</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>Step 3: Test</h3>
+                <p>Visit your main URL again. The CarPar app should now load! 🎉</p>
+            </div>
+        </div>
+
+        <div class="info">
+            <h2>📋 Diagnostic Information:</h2>
+            <p><strong>URL:</strong> <span id="current-url"></span></p>
+            <p><strong>Timestamp:</strong> <span id="timestamp"></span></p>
+            <p><strong>User Agent:</strong> <span id="user-agent"></span></p>
+        </div>
+
+        <script>
+            document.getElementById('current-url').textContent = window.location.href;
+            document.getElementById('timestamp').textContent = new Date().toLocaleString();
+            document.getElementById('user-agent').textContent = navigator.userAgent;
+        </script>
+    </div>
+</body>
+</html>
